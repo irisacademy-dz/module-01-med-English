@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 1: Common Symptoms and Diseases</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8fafc;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            background-image: linear-gradient(to bottom, #f0f9ff 0%, #ffffff 100%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            border: 1px solid #e1e8f0;
+        }
+        
+        .module-header {
+            background: linear-gradient(135deg, #1a6dbb 0%, #0d4d8c 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .module-header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.2;
+        }
+        
+        .module-title {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .module-subtitle {
+            font-size: 1.4rem;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .module-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .meta-item {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .meta-icon {
+            font-size: 1.2rem;
+        }
+        
+        h2 {
+            color: #1a6dbb;
+            border-bottom: 3px solid #e6f2ff;
+            padding-bottom: 12px;
+            margin: 40px 30px 25px;
+            font-size: 2rem;
+        }
+        
+        h3 {
+            color: #0d4d8c;
+            margin: 30px 30px 15px;
+            font-size: 1.6rem;
+            padding-left: 10px;
+            border-left: 4px solid #4CAF50;
+        }
+        
+        h4 {
+            color: #2c5282;
+            margin: 20px 30px 10px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .content-section {
+            padding: 0 30px 30px;
+        }
+        
+        .intro-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin: 0 30px 30px;
+            background-color: #f0f9ff;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #1a6dbb;
+        }
+        
+        .section-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e1e8f0;
+            transition: transform 0.3s ease;
+        }
+        
+        .section-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .theory-card {
+            border-top: 5px solid #1a6dbb;
+        }
+        
+        .practice-card {
+            border-top: 5px solid #4CAF50;
+        }
+        
+        .card-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+        
+        .card-title.theory::before {
+            content: "📚";
+            margin-right: 15px;
+            font-size: 1.6rem;
+        }
+        
+        .card-title.practice::before {
+            content: "🔬";
+            margin-right: 15px;
+            font-size: 1.6rem;
+        }
+        
+        ul, ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        
+        li {
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+        
+        .vocabulary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .vocab-item {
+            background-color: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #4299e1;
+        }
+        
+        .vocab-term {
+            font-weight: 700;
+            color: #2c5282;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        
+        .vocab-definition {
+            color: #4a5568;
+            line-height: 1.5;
+        }
+        
+        .visual-aid {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f0f9ff;
+            border-radius: 10px;
+        }
+        
+        .visual-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2c5282;
+            font-size: 1.2rem;
+        }
+        
+        .visual-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 15px 0;
+        }
+        
+        .caption {
+            font-style: italic;
+            color: #718096;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .pain-scale {
+            display: flex;
+            justify-content: space-between;
+            margin: 25px 0;
+            padding: 20px;
+            background: linear-gradient(to right, #e6fffa 0%, #fed7d7 100%);
+            border-radius: 10px;
+        }
+        
+        .pain-level {
+            text-align: center;
+            flex: 1;
+            padding: 10px;
+        }
+        
+        .pain-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+        
+        .pain-description {
+            font-size: 0.9rem;
+            color: #4a5568;
+        }
+        
+        .activity-box {
+            background-color: #f7fafc;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 5px solid #4CAF50;
+        }
+        
+        .activity-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: #2d3748;
+            font-size: 1.3rem;
+        }
+        
+        .activity-title::before {
+            content: "📝";
+            margin-right: 10px;
+        }
+        
+        .roleplay-scenario {
+            background-color: #e6fffa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px dashed #38b2ac;
+        }
+        
+        .scenario-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2c7a7b;
+        }
+        
+        .dialogue-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            border-left: 4px solid #4299e1;
+        }
+        
+        .speaker {
+            font-weight: 700;
+            color: #2c5282;
+            margin-bottom: 5px;
+        }
+        
+        .body-systems {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .system-card {
+            background-color: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .system-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .system-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .system-name {
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #2c5282;
+        }
+        
+        .system-conditions {
+            font-size: 0.9rem;
+            color: #4a5568;
+            line-height: 1.4;
+        }
+        
+        .learning-objectives {
+            background: linear-gradient(135deg, #e6f2ff 0%, #f0f9ff 100%);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px;
+        }
+        
+        .objective-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .objective-check {
+            color: #4CAF50;
+            margin-right: 15px;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background-color: #e2e8f0;
+            border-radius: 5px;
+            margin: 30px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, #4CAF50, #1a6dbb);
+            width: 0%;
+            border-radius: 5px;
+            transition: width 1s ease;
+        }
+        
+        .progress-text {
+            text-align: center;
+            margin-top: 10px;
+            color: #718096;
+            font-style: italic;
+        }
+        
+        .assessment-box {
+            background-color: #fffaf0;
+            border: 2px solid #ed8936;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px;
+        }
+        
+        .assessment-title {
+            color: #dd6b20;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .download-section {
+            text-align: center;
+            padding: 30px;
+            background-color: #f0f9ff;
+            margin: 30px;
+            border-radius: 10px;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background-color: #1a6dbb;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+        
+        .download-btn:hover {
+            background-color: #0d4d8c;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(26, 109, 187, 0.2);
+        }
+        
+        .key-takeaways {
+            background-color: #f0fff4;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px;
+            border-left: 5px solid #38a169;
+        }
+        
+        .takeaway-item {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: flex-start;
+        }
+        
+        .takeaway-icon {
+            color: #38a169;
+            margin-right: 15px;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #2d3748;
+            color: #cbd5e0;
+            margin-top: 40px;
+        }
+        
+        .program-leader {
+            font-weight: 600;
+            color: white;
+            margin-top: 10px;
+        }
+        
+        @media print {
+            .download-btn, .progress-bar {
+                display: none;
+            }
+            
+            .container {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .module-title {
+                font-size: 2.2rem;
+            }
+            
+            .module-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .content-section, .intro-text, h2, h3, h4 {
+                padding-left: 20px;
+                padding-right: 20px;
+                margin-left: 0;
+                margin-right: 0;
+            }
+            
+            .vocabulary-grid, .body-systems {
+                grid-template-columns: 1fr;
+            }
+            
+            .pain-scale {
+                flex-direction: column;
+            }
+            
+            .pain-level {
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Module Header -->
+        <div class="module-header">
+            <h1 class="module-title">Module 1: Common Symptoms and Diseases</h1>
+            <p class="module-subtitle">Master essential vocabulary for describing symptoms, understanding patient complaints, and discussing common medical conditions</p>
+            
+            <div class="module-meta">
+                <div class="meta-item">
+                    <span class="meta-icon">⏱️</span>
+                    <span>Duration: 8-10 hours</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-icon">📊</span>
+                    <span>Level: B1/B2 Intermediate</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-icon">🎯</span>
+                    <span>Focus: Medical Communication</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Introduction -->
+        <div class="intro-text">
+            <p>This module forms the foundation of medical English communication. You will learn to accurately describe symptoms, understand patient complaints, and discuss common medical conditions with precision and clarity. Effective symptom description is crucial for accurate diagnosis, treatment planning, and patient-doctor communication.</p>
+        </div>
+        
+        <!-- Learning Objectives -->
+        <div class="learning-objectives">
+            <h3>Learning Objectives</h3>
+            <div class="objective-item">
+                <div class="objective-check">✓</div>
+                <div>Master vocabulary for describing different types and intensities of pain</div>
+            </div>
+            <div class="objective-item">
+                <div class="objective-check">✓</div>
+                <div>Learn terminology for common symptoms and their variations</div>
+            </div>
+            <div class="objective-item">
+                <div class="objective-check">✓</div>
+                <div>Understand how to describe disease progression and severity</div>
+            </div>
+            <div class="objective-item">
+                <div class="objective-check">✓</div>
+                <div>Connect body systems with related conditions and symptoms</div>
+            </div>
+            <div class="objective-item">
+                <div class="objective-check">✓</div>
+                <div>Use appropriate adjectives to describe medical conditions</div>
+            </div>
+            <div class="objective-item">
+                <div class="objective-check">✓</div>
+                <div>Apply knowledge through role-plays, case studies, and practical exercises</div>
+            </div>
+        </div>
+        
+        <!-- Progress Indicator -->
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-text">Module Progress: <span id="progressText">0%</span></div>
+        
+        <h2>Theoretical Aspects</h2>
+        
+        <!-- Section 1: Pain Description -->
+        <div class="section-card theory-card">
+            <div class="card-title theory">1. Vocabulary for Pain Description</div>
+            
+            <p>Accurate pain description is essential for diagnosis. Pain can be categorized by quality, intensity, location, duration, and aggravating/alleviating factors.</p>
+            
+            <div class="vocabulary-grid">
+                <div class="vocab-item">
+                    <div class="vocab-term">Aching</div>
+                    <div class="vocab-definition">A continuous dull pain, often described as sore or tender. Common with muscle fatigue or arthritis.</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="vocab-term">Throbbing</div>
+                    <div class="vocab-definition">Pain that beats rhythmically, often in time with the heart. Common with headaches or abscesses.</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="vocab-term">Sharp</div>
+                    <div class="vocab-definition">Intense, piercing pain that is well-localized. Common with cuts, fractures, or kidney stones.</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="vocab-term">Dull</div>
+                    <div class="vocab-definition">A constant, mild to moderate pain that isn't sharp. Common with chronic conditions.</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="vocab-term">Burning</div>
+                    <div class="vocab-definition">A hot, scorching sensation. Common with acid reflux, sunburn, or neuropathic pain.</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="vocab-term">Stabbing</div>
+                    <div class="vocab-definition">Sudden, severe, knife-like pain. Common with pleurisy or acute abdominal conditions.</div>
+                </div>
+            </div>
+            
+            <div class="visual-aid">
+                <div class="visual-title">Pain Intensity Scale</div>
+                <div class="pain-scale">
+                    <div class="pain-level">
+                        <div class="pain-number">0</div>
+                        <div class="pain-description">No pain</div>
+                    </div>
+                    <div class="pain-level">
+                        <div class="pain-number">1-3</div>
+                        <div class="pain-description">Mild pain<br>(Annoying)</div>
+                    </div>
+                    <div class="pain-level">
+                        <div class="pain-number">4-6</div>
+                        <div class="pain-description">Moderate pain<br>(Interferes with tasks)</div>
+                    </div>
+                    <div class="pain-level">
+                        <div class="pain-number">7-9</div>
+                        <div class="pain-description">Severe pain<br>(Disabling)</div>
+                    </div>
+                    <div class="pain-level">
+                        <div class="pain-number">10</div>
+                        <div class="pain-description">Worst pain imaginable</div>
+                    </div>
+                </div>
+                <div class="caption">Visual Analog Scale (VAS) for pain assessment</div>
+            </div>
+            
+            <h4>Pain Location Terminology</h4>
+            <ul>
+                <li><strong>Localized:</strong> Pain in a specific area</li>
+                <li><strong>Radiating:</strong> Pain that spreads from its origin (e.g., chest pain radiating to the left arm)</li>
+                <li><strong>Referred:</strong> Pain felt in a different area from its source (e.g., gallbladder pain felt in the right shoulder)</li>
+                <li><strong>Generalized:</strong> Pain affecting large areas or the whole body</li>
+            </ul>
+        </div>
+        
+        <!-- Section 2: Common Symptom Terminology -->
+        <div class="section-card theory-card">
+            <div class="card-title theory">2. Common Symptom Terminology</div>
+            
+            <p>Symptoms are subjective experiences reported by patients. Understanding precise terminology helps differentiate between conditions.</p>
+            
+            <div class="vocabulary-grid">
+                <div class="vocab-item">
+                    <div class="vocab-term">Nausea</div>
+                    <div class="vocab-definition">The sensation of wanting to vomit. Can be accompanied by sweating, salivation, or pallor.</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="vocab-term">Fatigue</div>
+                    <div class="vocab-definition">Extreme tiredness or exhaustion, not relieved by rest. Different from normal tiredness.</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="vocab-term">Dizziness</div>
+                    <div class="vocab-definition">A sensation of lightheadedness, unsteadiness, or feeling faint. Vertigo is a specific type involving spinning sensation.</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="vocab-term">Dyspnea</div>
+                    <div class="vocab-definition">Shortness of breath or difficulty breathing. Can be exertional (with activity) or at rest.</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="vocab-term">Edema</div>
+                    <div class="vocab-definition">Swelling caused by excess fluid trapped in body tissues. Often in legs, ankles, or feet.</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="vocab-term">Pruritus</div>
+                    <div class="vocab-definition">Medical term for itching. Can be localized or generalized.</div>
+                </div>
+            </div>
+            
+            <div class="visual-aid">
+                <div class="visual-title">Common Symptom Categories</div>
+                <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin: 20px 0;">
+                    <div style="text-align: center; padding: 15px; background: #e6f2ff; border-radius: 8px; min-width: 150px;">
+                        <div style="font-size: 2rem;">🤢</div>
+                        <div style="font-weight: 600; margin: 10px 0;">GI Symptoms</div>
+                        <div>Nausea, vomiting, diarrhea, constipation, heartburn</div>
+                    </div>
+                    <div style="text-align: center; padding: 15px; background: #e6fffa; border-radius: 8px; min-width: 150px;">
+                        <div style="font-size: 2rem;">😴</div>
+                        <div style="font-weight: 600; margin: 10px 0;">Constitutional</div>
+                        <div>Fatigue, fever, chills, weight loss, night sweats</div>
+                    </div>
+                    <div style="text-align: center; padding: 15px; background: #fef3c7; border-radius: 8px; min-width: 150px;">
+                        <div style="font-size: 2rem;">🤕</div>
+                        <div style="font-weight: 600; margin: 10px 0;">Neurological</div>
+                        <div>Headache, dizziness, numbness, tingling, weakness</div>
+                    </div>
+                </div>
+            </div>
+            
+            <h4>Symptom Qualifiers</h4>
+            <ul>
+                <li><strong>Onset:</strong> When did it start? (Sudden vs. gradual)</li>
+                <li><strong>Duration:</strong> How long does it last? (Seconds, minutes, hours, days)</li>
+                <li><strong>Frequency:</strong> How often does it occur? (Constant, intermittent, episodic)</li>
+                <li><strong>Severity:</strong> How bad is it? (Mild, moderate, severe)</li>
+                <li><strong>Aggravating factors:</strong> What makes it worse?</li>
+                <li><strong>Alleviating factors:</strong> What makes it better?</li>
+            </ul>
+        </div>
+        
+        <!-- Section 3: Describing Disease Progression and Severity -->
+        <div class="section-card theory-card">
+            <div class="card-title theory">3. Describing Disease Progression and Severity</div>
+            
+            <p>Medical professionals need precise language to describe how conditions develop and their impact on patients.</p>
+            
+            <h4>Disease Progression Terminology</h4>
+            <div class="vocabulary-grid">
+                <div class="vocab-item">
+                    <div class="vocab-term">Acute onset</div>
+                    <div class="vocab-definition">Symptoms that develop rapidly, usually over hours or days</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="vocab-term">Insidious onset</div>
+                    <div class="vocab-definition">Symptoms that develop gradually and subtly over time</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="vocab-term">Progressive</div>
+                    <div class="vocab-definition">Condition that continues to worsen over time</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="vocab-term">Remission</div>
+                    <div class="vocab-definition">Period when symptoms of a disease disappear or diminish</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="vocab-term">Exacerbation</div>
+                    <div class="vocab-definition">Worsening or flare-up of symptoms</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="vocab-term">Relapse</div>
+                    <div class="vocab-definition">Return of disease symptoms after a period of improvement</div>
+                </div>
+            </div>
+            
+            <h4>Severity Descriptors</h4>
+            <ul>
+                <li><strong>Mild:</strong> Symptoms are present but don't significantly interfere with daily activities</li>
+                <li><strong>Moderate:</strong> Symptoms cause notable limitations in daily activities</li>
+                <li><strong>Severe:</strong> Symptoms cause inability to perform daily activities</li>
+                <li><strong>Debilitating:</strong> Symptoms severely restrict normal functioning</li>
+                <li><strong>Life-threatening:</strong> Condition poses immediate risk to life</li>
+            </ul>
+        </div>
+        
+        <!-- Section 4: Body Systems and Related Conditions -->
+        <div class="section-card theory-card">
+            <div class="card-title theory">4. Body Systems and Related Conditions</div>
+            
+            <p>Understanding which symptoms correspond to which body systems is crucial for differential diagnosis.</p>
+            
+            <div class="body-systems">
+                <div class="system-card">
+                    <div class="system-icon">🫀</div>
+                    <div class="system-name">Cardiovascular</div>
+                    <div class="system-conditions">Chest pain, palpitations, dyspnea, edema<br><em>Conditions: Hypertension, angina, heart failure</em></div>
+                </div>
+                <div class="system-card">
+                    <div class="system-icon">🫁</div>
+                    <div class="system-name">Respiratory</div>
+                    <div class="system-conditions">Cough, dyspnea, wheezing, hemoptysis<br><em>Conditions: Asthma, COPD, pneumonia</em></div>
+                </div>
+                <div class="system-card">
+                    <div class="system-icon">🧠</div>
+                    <div class="system-name">Neurological</div>
+                    <div class="system-conditions">Headache, dizziness, weakness, numbness<br><em>Conditions: Migraine, stroke, epilepsy</em></div>
+                </div>
+                <div class="system-card">
+                    <div class="system-icon">🩸</div>
+                    <div class="system-name">Gastrointestinal</div>
+                    <div class="system-conditions">Nausea, vomiting, abdominal pain, diarrhea<br><em>Conditions: GERD, IBS, gastritis</em></div>
+                </div>
+                <div class="system-card">
+                    <div class="system-icon">💪</div>
+                    <div class="system-name">Musculoskeletal</div>
+                    <div class="system-conditions">Joint pain, back pain, stiffness, swelling<br><em>Conditions: Arthritis, osteoporosis, tendinitis</em></div>
+                </div>
+                <div class="system-card">
+                    <div class="system-icon">👁️</div>
+                    <div class="system-name">Integumentary</div>
+                    <div class="system-conditions">Rash, pruritus, lesions, discoloration<br><em>Conditions: Eczema, psoriasis, dermatitis</em></div>
+                </div>
+            </div>
+            
+            <h4>Systemic vs. Localized Symptoms</h4>
+            <ul>
+                <li><strong>Systemic symptoms:</strong> Affect the entire body (fever, fatigue, weight loss)</li>
+                <li><strong>Localized symptoms:</strong> Confined to a specific area (right lower quadrant abdominal pain, left-sided headache)</li>
+                <li><strong>Referred pain:</strong> Pain perceived at a location other than the site of the painful stimulus</li>
+                <li><strong>Radicular symptoms:</strong> Radiating along a nerve pathway (sciatica)</li>
+            </ul>
+        </div>
+        
+        <!-- Section 5: Adjectives for Describing Conditions -->
+        <div class="section-card theory-card">
+            <div class="card-title theory">5. Adjectives for Describing Conditions</div>
+            
+            <p>Precise adjectives help communicate the nature and characteristics of medical conditions accurately.</p>
+            
+            <div class="vocabulary-grid">
+                <div class="vocab-item">
+                    <div class="vocab-term">Acute</div>
+                    <div class="vocab-definition">Sudden onset, short duration (usually less than 3 months)</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="vocab-term">Chronic</div>
+                    <div class="vocab-definition">Long-lasting or recurring (usually 3 months or more)</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="vocab-term">Benign</div>
+                    <div class="vocab-definition">Not cancerous; not tending to spread or worsen</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="vocab-term">Malignant</div>
+                    <div class="vocab-definition">Cancerous; tending to become progressively worse and spread</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="vocab-term">Idiopathic</div>
+                    <div class="vocab-definition">Of unknown cause</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="vocab-term">Congenital</div>
+                    <div class="vocab-definition">Present at birth</div>
+                </div>
+            </div>
+            
+            <h4>Common Adjective Pairs in Medicine</h4>
+            <ul>
+                <li><strong>Acute vs. Chronic:</strong> Duration of condition</li>
+                <li><strong>Benign vs. Malignant:</strong> Potential for harm/spread</li>
+                <li><strong>Localized vs. Systemic/Generalized:</strong> Extent of involvement</li>
+                <li><strong>Primary vs. Secondary:</strong> Original cause vs. resulting from another condition</li>
+                <li><strong>Unilateral vs. Bilateral:</strong> One side vs. both sides</li>
+                <li><strong>Superficial vs. Deep:</strong> Depth of involvement</li>
+            </ul>
+        </div>
+        
+        <h2>Practical Applications</h2>
+        
+        <!-- Activity 1: Role-play -->
+        <div class="section-card practice-card">
+            <div class="card-title practice">Activity 1: Role-play - Taking a Symptom History</div>
+            
+            <p>Practice taking a comprehensive symptom history from a patient. This exercise develops both language skills and clinical reasoning.</p>
+            
+            <div class="activity-box">
+                <div class="activity-title">Instructions</div>
+                <ol>
+                    <li>Work in pairs - one as doctor, one as patient</li>
+                    <li>Doctor should follow the SOCRATES mnemonic for pain assessment</li>
+                    <li>Patient should use the vocabulary learned in this module</li>
+                    <li>Switch roles after completing the scenario</li>
+                    <li>Focus on clear communication and accurate terminology</li>
+                </ol>
+            </div>
+            
+            <div class="roleplay-scenario">
+                <div class="scenario-title">Scenario 1: Abdominal Pain</div>
+                <p><strong>Patient role:</strong> You are a 45-year-old office worker experiencing abdominal discomfort for 3 days. The pain is dull and aching, located in the upper abdomen, worse after eating fatty foods. You also feel nauseated but haven't vomited.</p>
+                
+                <p><strong>Doctor role:</strong> Take a complete history of present illness. Use SOCRATES to explore the pain characteristics.</p>
+                
+                <div class="dialogue-box">
+                    <div class="speaker">Doctor:</div>
+                    <div>"Good morning, I'm Dr. Smith. What brings you in today?"</div>
+                    
+                    <div style="margin-top: 15px;">
+                        <div class="speaker">Patient:</div>
+                        <div>"I've been having stomach pain for a few days."</div>
+                    </div>
+                    
+                    <div style="margin-top: 15px;">
+                        <div class="speaker">Doctor:</div>
+                        <div>"Can you describe the pain for me? What does it feel like?"</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="roleplay-scenario">
+                <div class="scenario-title">Scenario 2: Headache</div>
+                <p><strong>Patient role:</strong> You are a 30-year-old teacher with recurrent headaches for 6 months. The pain is throbbing, usually on one side of your head, lasts 4-6 hours, and is accompanied by nausea and sensitivity to light.</p>
+                
+                <p><strong>Doctor role:</strong> Explore the characteristics, timing, and associated symptoms. Consider possible diagnoses.</p>
+            </div>
+            
+            <h4>SOCRATES Mnemonic for Pain Assessment</h4>
+            <ul>
+                <li><strong>S</strong>ite: Where is the pain?</li>
+                <li><strong>O</strong>nset: When did it start? Sudden or gradual?</li>
+                <li><strong>C</strong>haracter: What does it feel like? (aching, sharp, etc.)</li>
+                <li><strong>R</strong>adiation: Does it spread anywhere?</li>
+                <li><strong>A</strong>ssociations: Any other symptoms?</li>
+                <li><strong>T</strong>ime course: How has it changed over time?</li>
+                <li><strong>E</strong>xacerbating/relieving factors: What makes it better/worse?</li>
+                <li><strong>S</strong>everity: How bad is it on a scale of 0-10?</li>
+            </ul>
+        </div>
+        
+        <!-- Activity 2: Case Study Analysis -->
+        <div class="section-card practice-card">
+            <div class="card-title practice">Activity 2: Case Study Analysis</div>
+            
+            <p>Analyze patient descriptions to identify possible conditions based on symptom patterns.</p>
+            
+            <div class="activity-box">
+                <div class="activity-title">Instructions</div>
+                <ol>
+                    <li>Read each case study carefully</li>
+                    <li>Identify key symptoms and their characteristics</li>
+                    <li>Consider which body system is involved</li>
+                    <li>Suggest possible differential diagnoses</li>
+                    <li>Explain your reasoning using medical terminology</li>
+                </ol>
+            </div>
+            
+            <h4>Case Study 1</h4>
+            <div class="dialogue-box">
+                <p><strong>Patient:</strong> 68-year-old male with progressive shortness of breath over 6 months, worse with exertion, better with rest. Also reports bilateral ankle swelling that worsens through the day and improves overnight. Denies chest pain but reports fatigue.</p>
+                
+                <p><strong>Questions:</strong></p>
+                <ul>
+                    <li>What body system(s) are likely involved?</li>
+                    <li>What is the likely nature of the condition (acute/chronic, benign/malignant)?</li>
+                    <li>What are two possible diagnoses?</li>
+                    <li>What additional information would you need?</li>
+                </ul>
+            </div>
+            
+            <h4>Case Study 2</h4>
+            <div class="dialogue-box">
+                <p><strong>Patient:</strong> 42-year-old female with intermittent right upper quadrant abdominal pain for 3 weeks. Describes pain as sharp and colicky, radiating to the right shoulder blade. Worse after eating fatty foods. Associated with nausea but no vomiting or fever.</p>
+                
+                <p><strong>Questions:</strong></p>
+                <ul>
+                    <li>Describe the pain using precise terminology</li>
+                    <li>What does "colicky" pain indicate?</li>
+                    <li>Why might the pain radiate to the shoulder?</li>
+                    <li>What is the most likely diagnosis?</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Activity 3: Listening Exercises -->
+        <div class="section-card practice-card">
+            <div class="card-title practice">Activity 3: Listening Exercises</div>
+            
+            <p>Develop listening comprehension skills for understanding patient descriptions of symptoms.</p>
+            
+            <div class="activity-box">
+                <div class="activity-title">Instructions</div>
+                <ol>
+                    <li>Listen to the audio recordings of patient descriptions</li>
+                    <li>Take notes on key symptoms and their characteristics</li>
+                    <li>Complete the symptom documentation form</li>
+                    <li>Compare your notes with the transcript</li>
+                </ol>
+            </div>
+            
+            <h4>Exercise 1: Pain Description</h4>
+            <div class="dialogue-box">
+                <p><em>Audio script for practice:</em></p>
+                <p>"The pain started about three days ago. At first it was just a dull ache in my lower back, but since yesterday it's become much sharper. It shoots down my right leg when I try to stand up. On a scale of 1 to 10, it's about a 7 when I'm moving, but only a 3 when I'm lying down. I've taken paracetamol but it doesn't seem to help much."</p>
+                
+                <p><strong>Comprehension Questions:</strong></p>
+                <ol>
+                    <li>How long has the patient had pain?</li>
+                    <li>How has the pain character changed?</li>
+                    <li>Where does the pain radiate?</li>
+                    <li>What aggravates and alleviates the pain?</li>
+                    <li>What has the patient tried for relief?</li>
+                </ol>
+            </div>
+            
+            <h4>Exercise 2: Multiple Symptoms</h4>
+            <div class="dialogue-box">
+                <p><em>Audio script for practice:</em></p>
+                <p>"I've been feeling really tired for about two weeks now, even though I'm sleeping more than usual. I've also had this dry cough that won't go away, and sometimes I feel short of breath just walking up the stairs. Oh, and I've had night sweats the last three nights - I wake up and my pajamas are soaked."</p>
+                
+                <p><strong>Document the symptoms:</strong></p>
+                <ul>
+                    <li>List all symptoms mentioned</li>
+                    <li>Note the duration of each</li>
+                    <li>Identify which are constitutional vs. localized</li>
+                    <li>Suggest possible body systems involved</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Activity 4: Writing Practice -->
+        <div class="section-card practice-card">
+            <div class="card-title practice">Activity 4: Writing Practice - Documenting Symptoms</div>
+            
+            <p>Practice writing clear, concise, and accurate medical notes using proper terminology.</p>
+            
+            <div class="activity-box">
+                <div class="activity-title">Instructions</div>
+                <ol>
+                    <li>Convert the patient's spoken description into written medical notes</li>
+                    <li>Use appropriate medical terminology and abbreviations</li>
+                    <li>Follow the SOAP format (Subjective, Objective, Assessment, Plan)</li>
+                    <li>Aim for clarity, accuracy, and brevity</li>
+                </ol>
+            </div>
+            
+            <h4>Writing Task 1</h4>
+            <div class="dialogue-box">
+                <p><strong>Patient statement:</strong> "I've had this headache since yesterday morning. It's a throbbing pain right behind my left eye. Bright lights make it worse. I feel nauseous but haven't vomited. I've had similar headaches before, but this one seems worse. I took ibuprofen but it didn't help."</p>
+                
+                <p><strong>Write the Subjective section of the SOAP note:</strong></p>
+                <textarea style="width: 100%; height: 150px; padding: 15px; border: 1px solid #cbd5e0; border-radius: 8px; font-family: 'Segoe UI', sans-serif; margin-top: 10px;" placeholder="Type your medical note here..."></textarea>
+            </div>
+            
+            <h4>Writing Task 2</h4>
+            <div class="dialogue-box">
+                <p><strong>Convert to medical terminology:</strong> Rewrite these patient descriptions using proper medical terms:</p>
+                <ol>
+                    <li>"I feel sick to my stomach" →</li>
+                    <li>"I'm really tired all the time" →</li>
+                    <li>"I get dizzy when I stand up too fast" →</li>
+                    <li>"My joints hurt and feel stiff in the morning" →</li>
+                    <li>"I have to go to the bathroom a lot and it burns when I pee" →</li>
+                </ol>
+                
+                <div style="margin-top: 20px;">
+                    <strong>Common Medical Abbreviations for Symptoms:</strong>
+                    <ul>
+                        <li>SOB = Shortness of breath</li>
+                        <li>N/V = Nausea and vomiting</li>
+                        <li>CP = Chest pain</li>
+                        <li>HA = Headache</li>
+                        <li>DOE = Dyspnea on exertion</li>
+                        <li>PRN = As needed</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Assessment Section -->
+        <div class="assessment-box">
+            <div class="assessment-title">Module 1 Assessment</div>
+            <p>Complete these tasks to demonstrate your understanding of Module 1 content:</p>
+            
+            <ol>
+                <li>Write a detailed pain description for a patient with suspected renal colic</li>
+                <li>Create a differential diagnosis list for a patient with fatigue, weight loss, and night sweats</li>
+                <li>Record a 2-minute audio describing symptoms as if you were a patient with gastroenteritis</li>
+                <li>Convert three layperson symptom descriptions into medical terminology</li>
+                <li>Role-play a complete symptom history taking with a partner (record if possible)</li>
+            </ol>
+            
+            <p><strong>Assessment Criteria:</strong> Accuracy of terminology, completeness of symptom description, clarity of communication, appropriate use of medical concepts.</p>
+        </div>
+        
+        <!-- Key Takeaways -->
+        <div class="key-takeaways">
+            <h3>Key Takeaways</h3>
+            
+            <div class="takeaway-item">
+                <div class="takeaway-icon">✓</div>
+                <div><strong>Pain description requires specific vocabulary</strong> (aching, throbbing, sharp, dull) and should include location, radiation, and aggravating/alleviating factors</div>
+            </div>
+            
+            <div class="takeaway-item">
+                <div class="takeaway-icon">✓</div>
+                <div><strong>Symptoms should be characterized by onset, duration, frequency, and severity</strong> to help with differential diagnosis</div>
+            </div>
+            
+            <div class="takeaway-item">
+                <div class="takeaway-icon">✓</div>
+                <div><strong>Connect symptoms to body systems</strong> to organize clinical thinking and identify possible conditions</div>
+            </div>
+            
+            <div class="takeaway-item">
+                <div class="takeaway-icon">✓</div>
+                <div><strong>Use precise adjectives</strong> (acute/chronic, benign/malignant, localized/systemic) to accurately describe conditions</div>
+            </div>
+            
+            <div class="takeaway-item">
+                <div class="takeaway-icon">✓</div>
+                <div><strong>Practice is essential</strong> - use role-plays, case studies, and writing exercises to develop fluency in medical communication</div>
+            </div>
+        </div>
+        
+        <!-- Download Section -->
+        <div class="download-section">
+            <h3>Additional Resources</h3>
+            <p>Download these resources to supplement your learning:</p>
+            
+            <button class="download-btn" onclick="simulateDownload('symptom-checklist.pdf')">
+                📋 Download Symptom Assessment Checklist
+            </button>
+            
+            <button class="download-btn" onclick="simulateDownload('medical-terminology-glossary.pdf')" style="margin-left: 15px; background-color: #4CAF50;">
+                📖 Download Medical Terminology Glossary
+            </button>
+            
+            <button class="download-btn" onclick="simulateDownload('roleplay-scenarios.pdf')" style="margin-left: 15px; background-color: #ed8936;">
+                🎭 Download Additional Role-play Scenarios
+            </button>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>Medical English Curriculum - Module 1: Common Symptoms and Diseases</p>
+            <p class="program-leader">Programme Leader: Ishak ZERDAZI | Medical English Specialist</p>
+            <p>Teacher of English since 2017 | Background in English Studies and Biotechnology/Bioinformatics</p>
+            <p style="margin-top: 20px; font-size: 0.9rem;">© 2023 Medical English Program. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        // Simulate progress
+        document.addEventListener('DOMContentLoaded', function() {
+            const progressFill = document.getElementById('progressFill');
+            const progressText = document.getElementById('progressText');
+            
+            // Simulate reading progress
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.random() * 5;
+                if (progress > 100) {
+                    progress = 100;
+                    clearInterval(interval);
+                }
+                
+                progressFill.style.width = progress + '%';
+                progressText.textContent = Math.round(progress) + '%';
+            }, 200);
+        });
+        
+        // Simulate download function
+        function simulateDownload(filename) {
+            alert(`Downloading ${filename}...\n\n(In a real application, this would download the file.)`);
+            
+            // In a real implementation, this would trigger an actual download
+            // For demo purposes, we just show an alert
+        }
+        
+        // Print functionality
+        function printModule() {
+            window.print();
+        }
+    </script>
+</body>
+</html>
